@@ -4,13 +4,13 @@ const makeSchema = new Schema({
   make: String,
   models: [
     {
-      id: String,
       model: String,
       year: Number,
       price: Number,
       mileage: Number,
       fuel: String,
       transmission: String,
+      location: String,
       accessories: Array,
     },
   ],

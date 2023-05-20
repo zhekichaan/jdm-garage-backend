@@ -1,3 +1,3 @@
-const { getCars, getMake } = require("./cars");
+const { getCars, getCar, addCar, getMake, getFeatured } = require("./cars");
 
-module.exports = { getCars, getMake };
+module.exports = { getCars, getCar, addCar, getMake, getFeatured };

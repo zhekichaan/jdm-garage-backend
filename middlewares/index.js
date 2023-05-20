@@ -1,6 +1,5 @@
 const validation = require("./validation");
 const ctrlWrapper = require("./ctrlWrapper");
-const auth = require("./auth");
 const createNotFoundError = require("./createNotFoundError");
 const {
   joiGetDailyRateSchema,
@@ -15,7 +14,6 @@ const {
 module.exports = {
   validation,
   ctrlWrapper,
-  auth,
   createNotFoundError,
   joiGetDailyRateSchema,
   joiUpdateDailyRateSchema,

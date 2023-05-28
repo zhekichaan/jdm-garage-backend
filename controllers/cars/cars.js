@@ -22,6 +22,11 @@ const getCar = async (req, res) => {
   const { _id } = req.params;
   console.log(_id);
   const car = await Car.findOne({ "models._id": _id }, { "models.$": 1 });
+  console.log(car);
+  if (!car) {
+    const featured = await Featured.findOne({ _id: _id });
+    return res.status(200).json(featured);
+  }
   return res.status(200).json(car);
 };
 

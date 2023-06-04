@@ -8,7 +8,7 @@ const getCars = async (req, res) => {
 };
 
 const getMake = async (req, res) => {
-  const { make } = req.body;
+  const { make } = req.params;
   const makeList = await Car.find({ make: make });
   return res.status(200).json(makeList);
 };

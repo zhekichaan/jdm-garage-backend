@@ -7,6 +7,7 @@ dotenv.config();
 mongoose.set("strictQuery", false);
 
 const carsRouter = require("./routes/api/carsRouter");
+const wheelsRouter = require("./routes/api/wheelsRouter");
 
 const app = express();
 
@@ -16,7 +17,8 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
-app.use("/api", carsRouter);
+app.use("/api/cars", carsRouter);
+app.use("/api/wheels", wheelsRouter);
 
 app.use((_, res) => res.status(404).json({ message: "Not Found" }));
 

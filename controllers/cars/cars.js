@@ -1,33 +1,32 @@
 // const { nanoid } = require("nanoid");
-const { Car, Featured } = require("../../models");
+const { Car } = require("../../models");
 
 const getCars = async (req, res) => {
-  const carsList = await Car.find();
-  console.log(carsList);
-  return res.status(200).json(carsList);
+  const { page } = req.query;
+  const carsList = await Car.find()
+    .skip((page - 1) * 6)
+    .limit(6);
+  return res.status(200).json({ carsList });
 };
 
 const getMake = async (req, res) => {
-  const { make } = req.params;
-  console.log(req.params);
-  const makeList = await Car.find({ make: make });
+  const { make, page } = req.query;
+  const makeList = await Car.find({ make: make })
+    .skip((page - 1) * 6)
+    .limit(6);
   return res.status(200).json(makeList);
 };
 
 const getFeatured = async (req, res) => {
-  const featuredList = await Featured.find();
+  const featuredList = await Car.find().limit(8);
   return res.status(200).json(featuredList);
 };
 
 const getCar = async (req, res) => {
   const { _id } = req.params;
   console.log(_id);
-  const car = await Car.findOne({ "models._id": _id }, { "models.$": 1 });
+  const car = await Car.findOne({ _id: _id });
   console.log(car);
-  if (!car) {
-    const featured = await Featured.findOne({ _id: _id });
-    return res.status(200).json(featured);
-  }
   return res.status(200).json(car);
 };
 
@@ -44,6 +43,7 @@ const addCar = async (req, res) => {
     accessories,
   } = req.body;
   const car = {
+    make,
     model,
     year,
     price,
@@ -56,10 +56,7 @@ const addCar = async (req, res) => {
 
   console.log(car);
 
-  const addedCar = await Car.findOneAndUpdate(
-    { make: make },
-    { $push: { models: car } }
-  );
+  const addedCar = await Car.create(car);
   return res.status(200).json({ message: "added car", addedCar });
 };
 

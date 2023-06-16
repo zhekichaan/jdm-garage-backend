@@ -6,7 +6,7 @@ const getCars = async (req, res) => {
   const carsList = await Car.find()
     .skip((page - 1) * 6)
     .limit(6);
-  return res.status(200).json({ carsList });
+  return res.status(200).json(carsList);
 };
 
 const getMake = async (req, res) => {

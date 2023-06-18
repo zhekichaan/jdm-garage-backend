@@ -9,8 +9,10 @@ const getWheels = async (req, res) => {
 };
 
 const getBrand = async (req, res) => {
-  const { brand } = req.query;
-  const brandList = await Wheel.find({ brand: brand });
+  const { brand, page } = req.query;
+  const brandList = await Wheel.find({ brand: brand })
+    .skip((page - 1) * 12)
+    .limit(12);
   return res.status(200).json(brandList);
 };
 

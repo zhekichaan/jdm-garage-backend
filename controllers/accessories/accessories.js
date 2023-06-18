@@ -9,8 +9,10 @@ const getAccessories = async (req, res) => {
 };
 
 const getCategory = async (req, res) => {
-  const { category } = req.query;
-  const categoryList = await Accessory.find({ category: category });
+  const { category, page } = req.query;
+  const categoryList = await Accessory.find({ category: category })
+    .skip((page - 1) * 12)
+    .limit(12);
   return res.status(200).json(categoryList);
 };
 

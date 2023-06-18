@@ -8,6 +8,7 @@ mongoose.set("strictQuery", false);
 
 const carsRouter = require("./routes/api/carsRouter");
 const wheelsRouter = require("./routes/api/wheelsRouter");
+const accessoriesRouter = require("./routes/api/accessoriesRouter");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use("/api/cars", carsRouter);
 app.use("/api/wheels", wheelsRouter);
+app.use("/api/accessories", accessoriesRouter);
 
 app.use((_, res) => res.status(404).json({ message: "Not Found" }));
 

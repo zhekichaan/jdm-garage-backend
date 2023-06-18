@@ -1,10 +1,6 @@
 const express = require("express");
 
-const {
-  // validation,
-  ctrlWrapper,
-  // joiGetMyProductSchema,
-} = require("../../middlewares");
+const { ctrlWrapper } = require("../../middlewares");
 const { wheels: ctrl } = require("../../controllers");
 
 const router = express.Router();

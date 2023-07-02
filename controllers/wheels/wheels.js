@@ -23,13 +23,14 @@ const getWheel = async (req, res) => {
 };
 
 const addWheel = async (req, res) => {
-  const { brand, name, price, color, size } = req.body;
+  const { brand, name, price, color, size, photos } = req.body;
   const wheel = {
     brand,
     name,
     price,
     color,
     size,
+    photos,
   };
 
   const addedWheel = await Wheel.create(wheel);

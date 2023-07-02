@@ -23,12 +23,13 @@ const getAccessory = async (req, res) => {
 };
 
 const addAccessory = async (req, res) => {
-  const { brand, name, category, price } = req.body;
+  const { brand, name, category, price, photos } = req.body;
   const accessory = {
     brand,
     name,
     category,
     price,
+    photos,
   };
 
   const addedAccessory = await Accessory.create(accessory);

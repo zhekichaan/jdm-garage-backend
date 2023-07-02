@@ -10,6 +10,7 @@ const makeSchema = new Schema({
   transmission: String,
   location: String,
   accessories: Array,
+  photos: Array,
 });
 
 const Car = model("Car", makeSchema, "cars");

@@ -6,6 +6,7 @@ const wheelSchema = new Schema({
   price: Number,
   color: String,
   size: String,
+  photos: Array,
 });
 
 const Wheel = model("Wheel", wheelSchema, "wheels");

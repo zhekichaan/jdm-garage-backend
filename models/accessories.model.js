@@ -5,6 +5,7 @@ const accessorySchema = new Schema({
   name: String,
   category: String,
   price: Number,
+  photos: Array,
 });
 
 const Accessory = model("Accessory", accessorySchema, "accessories");

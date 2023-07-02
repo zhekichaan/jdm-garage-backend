@@ -8,7 +8,7 @@ const makeSchema = new Schema({
   mileage: Number,
   fuel: String,
   transmission: String,
-  location: String,
+  engine: String,
   accessories: Array,
   photos: Array,
   description: String,

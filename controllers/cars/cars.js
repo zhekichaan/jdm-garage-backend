@@ -42,6 +42,7 @@ const addCar = async (req, res) => {
     transmission,
     accessories,
     photos,
+    description,
   } = req.body;
   const car = {
     make,
@@ -54,6 +55,7 @@ const addCar = async (req, res) => {
     location,
     accessories,
     photos,
+    description,
   };
 
   console.log(car);

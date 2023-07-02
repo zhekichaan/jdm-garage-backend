@@ -11,6 +11,7 @@ const makeSchema = new Schema({
   location: String,
   accessories: Array,
   photos: Array,
+  description: String,
 });
 
 const Car = model("Car", makeSchema, "cars");

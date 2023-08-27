@@ -4,8 +4,9 @@ const wheelSchema = new Schema({
   brand: String,
   name: String,
   price: Number,
-  color: String,
+  colors: Array,
   size: String,
+  sizes: Array,
   photos: Array,
 });
 

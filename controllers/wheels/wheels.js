@@ -1,10 +1,10 @@
 const { Wheel } = require("../../models");
 
 const getWheels = async (req, res) => {
-  const { page } = req.query;
+  const { page, limit } = req.query;
   const wheelsList = await Wheel.find()
     .skip((page - 1) * 12)
-    .limit(12);
+    .limit(limit);
   return res.status(200).json(wheelsList);
 };
 

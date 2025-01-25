@@ -9,7 +9,7 @@
     "lint:fix": "eslint --fix **/*.js"
   },
   "engines": {
-    "node": ">=22.13.1"
+    "node": ">=23.6.1"
   },
   "dependencies": {
     "@joi/date": "^2.1.0",

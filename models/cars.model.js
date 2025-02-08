@@ -6,10 +6,11 @@ const makeSchema = new Schema({
   year: Number,
   price: Number,
   mileage: Number,
-  fuel: String,
+  capacity: String,
   transmission: String,
   engine: String,
-  accessories: Array,
+  engineType: String,
+  drive: String,
   photos: Array,
   description: String,
 });

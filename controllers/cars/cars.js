@@ -18,7 +18,7 @@ const getMake = async (req, res) => {
 };
 
 const getFeatured = async (req, res) => {
-  const featuredList = await Car.find().limit(8);
+  const featuredList = await Car.find().limit(4);
   return res.status(200).json(featuredList);
 };
 
